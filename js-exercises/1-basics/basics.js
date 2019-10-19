@@ -106,7 +106,7 @@ describe("basics", function() {
 
     describe("test 9", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            /* ADD CODE HERE - TWO LINES */
 
             expect(d).to.eql([1, 2, 3]);
             expect(e).to.eql([1, 2, 3]);
@@ -136,7 +136,7 @@ describe("basics", function() {
 
     describe("test 11", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            /* ADD CODE HERE - TWO LINES */
 
             expect(typeof g).to.equal("number");
             expect(typeof h).to.equal("string");
