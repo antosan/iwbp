@@ -165,7 +165,7 @@ describe("basics", function() {
 
     describe("test 14", function() {
         it("should run without errors", function() {
-            var hasBeenCalled = false;
+            let hasBeenCalled = false;
 
             /* ADD CODE HERE */
 
@@ -179,7 +179,7 @@ describe("basics", function() {
 
     describe("test 15", function() {
         it("should run without errors", function() {
-            var obj = {
+            const obj = {
                 a: 1,
                 b: 2
             };
@@ -196,10 +196,11 @@ describe("basics", function() {
 
     describe("test 16", function() {
         it("should run without errors", function() {
-            var obj1 = {
+            const obj1 = {
                 a: 1,
                 b: 2
             };
+            /* ADD CODE HERE */
 
             expect(obj2.a).to.equal(1);
             expect(obj2.b).to.equal(2);
@@ -215,9 +216,9 @@ describe("basics", function() {
 
     describe("test 17", function() {
         it("should run without errors", function() {
-            var i;
+            let i;
 
-            /* ADD CODE HERE */
+            /* ADD CODE HERE - TWO LINES */
 
             for (i = 0; i < 50; i++) {
                 expect(obj.obj).to.equal(obj);
