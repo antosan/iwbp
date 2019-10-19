@@ -19,7 +19,7 @@ describe("functions", function() {
     describe("test 2", function() {
         it("should run without errors", function() {
             /* EDIT NEXT LINE */
-            var b = function c() {};
+            const b = function c() {};
 
             expect(typeof b).to.equal("function");
             expect(b === c).to.equal(true);
@@ -28,7 +28,7 @@ describe("functions", function() {
 
     describe("test 3", function() {
         it("should run without errors", function() {
-            var number = 0;
+            let number = 0;
 
             function incrementNumber() {
                 number++;
@@ -54,7 +54,7 @@ describe("functions", function() {
 
     describe("test 5", function() {
         it("should run without errors", function() {
-            var o = { a: 0 };
+            const o = { a: 0 };
 
             function increment() {
                 this.a++;
@@ -69,7 +69,7 @@ describe("functions", function() {
 
     describe("test 6", function() {
         it("should run without errors", function() {
-            var o = { a: 0 };
+            const o = { a: 0 };
 
             o.increment = function() {
                 this.a++;
@@ -89,8 +89,8 @@ describe("functions", function() {
 
     describe("test 7", function() {
         it("should run without errors", function() {
-            var o = {};
-            var hasBeenCalled = false;
+            const o = {};
+            let hasBeenCalled = false;
 
             o.increment = function() {
                 hasBeenCalled = true;
@@ -107,8 +107,8 @@ describe("functions", function() {
 
     describe("test 8", function() {
         it("should run without errors", function() {
-            var o = {};
-            var hasBeenCalled = false;
+            const o = {};
+            let hasBeenCalled = false;
 
             function fn() {
                 hasBeenCalled = true;
@@ -130,8 +130,8 @@ describe("functions", function() {
             }
 
             (function() {
-                var o1 = {};
-                var o2 = fn(o1);
+                const o1 = {};
+                const o2 = fn(o1);
 
                 expect(o1 === o2).to.equal(true);
             })();
@@ -151,7 +151,7 @@ describe("functions", function() {
 
     describe("test 11", function() {
         it("should run without errors", function() {
-            var i = 0;
+            let i = 0;
 
             function increment() {
                 /* ADD CODE HERE */
@@ -229,7 +229,7 @@ describe("functions", function() {
 
     describe("test 17", function() {
         it("should run without errors", function() {
-            var o = {
+            const o = {
                 a: 0,
                 fn: fn
             };
@@ -252,7 +252,7 @@ describe("functions", function() {
 
     describe("test 18", function() {
         it("should run without errors", function(done) {
-            var error = true;
+            let error = true;
 
             function callback() {
                 if (error) {
@@ -274,7 +274,7 @@ describe("functions", function() {
 
     describe("test 19", function() {
         it("should run without errors", function() {
-            var o = {
+            const o = {
                 a: 0,
                 fn: function() {
                     callFn(
@@ -297,7 +297,7 @@ describe("functions", function() {
 
     describe("test 20", function() {
         it("should run without errors", function() {
-            var arr;
+            let arr;
 
             arr = ["a", "b", "c"]
                 .map(function(letter) {
