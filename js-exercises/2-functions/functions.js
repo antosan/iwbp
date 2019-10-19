@@ -18,8 +18,8 @@ describe("functions", function() {
 
     describe("test 2", function() {
         it("should run without errors", function() {
-            /* EDIT NEXT LINE */
             const b = function c() {};
+            /* ADD CORE HERE */
 
             expect(typeof b).to.equal("function");
             expect(b === c).to.equal(true);
