@@ -1,229 +1,359 @@
 /**
- * INSTRUCTIONS:
+ * ⚠️☝️ INSTRUCTIONS ☝️⚠️
  *
- * 1. Do not remove any code
- * 2. Replace ADD CODE HERE with real code
- * 3. Modifying code is only allowed below EDIT NEXT LINE
+ * - Do not remove any code
+ * - Only add or edit code in areas marked with ✏️
  */
+
 describe("basics", function() {
     "use strict";
 
-    describe("test example", function() {
+    describe("Example test", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            expect(a).to.equal(true);
+            ////////////////////////////////////////////////////////////////////
+
+            expect(someVariable).to.equal(true);
         });
     });
 
-    describe("test 1", function() {
+    describe("Some variable declarations are hoisted", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            expect(someVariable).to.equal(undefined);
 
-            expect(typeof a).to.equal("undefined");
-            expect(a).to.equal(undefined);
+            ////////////////////////////////////////////////////////////////////
+            // Declare "someVariable" in way so that the declaration is hoisted.
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
         });
     });
 
-    describe("test 2", function() {
+    describe("Other variables declarations are NOT hoisted", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            expect(() => {
+                someVariable; // someVariable should NOT yet be defined here
+            }).to.throw("Cannot access 'someVariable' before initialization");
 
-            expect(typeof a).to.equal("undefined");
-            expect(a == null).to.equal(true);
-            expect(a === null).to.equal(false);
+            ////////////////////////////////////////////////////////////////////
+            // Declare "someVariable" in way so that the declaration is NOT hoisted.
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(someVariable).to.equal(undefined);
         });
     });
 
-    describe("test 3", function() {
+    describe("Undefined or null?", function() {
         it("should run without errors", function() {
-            expect(a).to.equal(undefined);
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+
+            expect(typeof someVariable).to.equal("undefined");
+            // Notice the difference:
+            // == does a loose equality check
+            // === does a strict equality check
+            expect(someVariable == null).to.equal(true);
+            expect(someVariable === null).to.equal(false);
         });
     });
 
-    describe("test 4", function() {
+    describe("Avoid primitive wrappers", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // 🚨 PLEASE NOTE 🚨:
+            // new Number() creates a "primitive wrapper". It's not an actual number, it's an object.
+            // In 99.999% of all cases, this is a bug and not actually intended. Fix it! :)
+            // ✏️ FIX THAT BUG ✏️
+            const someNumber = new Number(3);
+            ////////////////////////////////////////////////////////////////////
 
-            expect(b == 3).to.equal(true);
-            expect(b === 3).to.equal(true);
-
-            /* ADD CODE HERE */
-
-            expect(c == 3).to.equal(true);
-            expect(c === 3).to.equal(false);
+            // The primitive wrapper passes the loose quality check because it will be casted to a number.
+            expect(someNumber == 3).to.equal(true);
+            // But it doesn't pass the strict equality check because an object is not a number.
+            // This is why you should always do triple equality checks.
+            expect(someNumber === 3).to.equal(true);
         });
     });
 
-    describe("test 5", function() {
+    describe("Writing large numbers without typing a lot zeros", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // We're searching for a big number written in way that we don't have to
+            // write all the zeros.
+            // Write it as a string so that the .length property can be checked.
+            // ✏️ EDIT NEXT LINE ✏️
+            const bigNumber = "...";
+            ////////////////////////////////////////////////////////////////////
 
-            expect(a.length).to.equal(3);
-            expect(Number(a)).to.equal(1000000);
+            expect(typeof bigNumber).to.equal("string");
+            expect(bigNumber.length).to.equal(3);
+            // Number(bigNumber) casts bigNumber from a string to a number
+            expect(Number(bigNumber)).to.equal(1000000000);
         });
     });
 
-    describe("test 6", function() {
+    describe("Trailing zeros can be omitted", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // We're searching for a floating point number
+            // written in way that we don't have to write all the zeros AFTER the point.
+            // Write it as a string so that the .length property can be checked.
+            // ✏️ ADD CODE HERE ✏️
+            const someNumber = "...";
+            ////////////////////////////////////////////////////////////////////
 
-            expect(a.length).to.equal(3);
-            expect(parseInt(a)).to.equal(10);
+            expect(typeof someNumber).to.equal("string");
+            expect(someNumber.length).to.equal(3);
+            // Number(someNumber) casts someNumber from a string to a number
+            expect(Number(someNumber)).to.equal(10);
         });
     });
 
-    describe("test 7", function() {
+    describe("Leading zeros can also be omitted", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // We're searching for a floating point number
+            // written in way that we don't have to write all the zeros BEFORE the point.
+            // Write it as a string so that the .length property can be checked.
+            // ✏️ EDIT NEXT LINE ✏️
+            const someNumber = "...";
+            ////////////////////////////////////////////////////////////////////
 
-            expect(a.length).to.equal(2);
-            expect(1 - a).to.equal(0.8);
+            expect(typeof someNumber).to.equal("string");
+            expect(someNumber.length).to.equal(2);
+            expect(parseFloat(someNumber)).to.equal(0.2);
         });
     });
 
-    describe("test 8", function() {
+    describe("Create an object with a property", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            expect(c).to.be.an.instanceof(Object);
-            expect(c.a).to.equal(1);
+            ////////////////////////////////////////////////////////////////////
 
-            /* ADD CODE HERE */
-
-            expect(c.a).to.equal(undefined);
-            expect(c.hasOwnProperty("a")).to.equal(true);
-            expect("a" in c).to.equal(true);
-
-            /* ADD CODE HERE */
-
-            expect(c.hasOwnProperty("a")).to.equal(false);
-            expect("a" in c).to.equal(false);
+            expect(object instanceof Object).to.equal(true);
+            expect(object.someProperty).to.equal(1);
         });
     });
 
-    describe("test 9", function() {
+    describe("Set a property to undefined", function() {
         it("should run without errors", function() {
-            /* ADD CODE HERE - TWO LINES */
-
-            expect(d).to.eql([1, 2, 3]);
-            expect(e).to.eql([1, 2, 3]);
-
-            d.push(4);
-
-            expect(d).to.eql([1, 2, 3, 4]);
-            expect(e).to.eql([1, 2, 3, 4]);
-
-            /* ADD CODE HERE */
-
-            d.pop();
-
-            expect(d).to.eql([1, 2, 3]);
-            expect(e).to.eql([1, 2, 3, 4]);
-        });
-    });
-
-    describe("test 10", function() {
-        it("should run without errors", function() {
-            /* ADD CODE HERE */
-
-            expect(f).to.be.instanceOf(Array);
-            expect(f.length).to.equal(100);
-        });
-    });
-
-    describe("test 11", function() {
-        it("should run without errors", function() {
-            /* ADD CODE HERE - TWO LINES */
-
-            expect(typeof g).to.equal("number");
-            expect(typeof h).to.equal("string");
-            expect(h - g).to.equal(-2);
-            expect(g + h).to.equal("31");
-        });
-    });
-
-    describe("test 12", function() {
-        it("should run without errors", function() {
-            /* ADD CODE HERE */
-
-            expect(typeof i).to.equal("number");
-            expect(i == false).to.equal(true);
-        });
-    });
-
-    describe("test 13", function() {
-        it("should run without errors", function() {
-            /* ADD CODE HERE */
-
-            expect(typeof j).to.equal("string");
-            expect(j == false).to.equal(true);
-        });
-    });
-
-    describe("test 14", function() {
-        it("should run without errors", function() {
-            let hasBeenCalled = false;
-
-            /* ADD CODE HERE */
-
-            expect(typeof k).to.equal("object");
-            if (!k) {
-                hasBeenCalled = true;
-            }
-            expect(hasBeenCalled).to.equal(true);
-        });
-    });
-
-    describe("test 15", function() {
-        it("should run without errors", function() {
-            const obj = {
-                a: 1,
-                b: 2
+            const object = {
+                someProperty: 1
             };
 
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            expect(obj[key]).to.equal(1);
+            ////////////////////////////////////////////////////////////////////
 
-            /* ADD CODE HERE */
-
-            expect(obj[key]).to.equal(2);
+            // object.someProperty is undefined...
+            expect(object.someProperty).to.equal(undefined);
+            // ...but it's still a property:
+            expect(object.hasOwnProperty("someProperty")).to.equal(true);
+            expect("someProperty" in object).to.equal(true);
         });
     });
 
-    describe("test 16", function() {
+    describe("Delete a property from an object", function() {
         it("should run without errors", function() {
-            const obj1 = {
-                a: 1,
-                b: 2
+            const object = {
+                someProperty: 1
             };
-            /* ADD CODE HERE */
 
-            expect(obj2.a).to.equal(1);
-            expect(obj2.b).to.equal(2);
-            expect(obj2).to.equal(obj1);
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            /* ADD CODE HERE */
+            ////////////////////////////////////////////////////////////////////
 
-            expect(obj2.a).to.equal(1);
-            expect(obj2.b).to.equal(2);
-            expect(obj2).to.not.equal(obj1);
+            // object.someProperty is undefined...
+            expect(object.someProperty).to.equal(undefined);
+            // ...and it's actually not a property anymore:
+            expect(object.hasOwnProperty("someProperty")).to.equal(false);
+            expect("someProperty" in object).to.equal(false);
         });
     });
 
-    describe("test 17", function() {
+    describe("Create a new reference to the same array", function() {
         it("should run without errors", function() {
-            let i;
+            const firstArray = [1, 2, 3];
 
-            /* ADD CODE HERE - TWO LINES */
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
 
-            for (i = 0; i < 50; i++) {
-                expect(obj.obj).to.equal(obj);
-                obj = obj.obj;
+            ////////////////////////////////////////////////////////////////////
+
+            expect(secondArray).toMatchObject([1, 2, 3]);
+
+            // We add a 4 at the end of firstArray
+            firstArray.push(4);
+
+            expect(firstArray).toMatchObject([1, 2, 3, 4]);
+            // Look at that: secondArray also has the 4. This means
+            // that secondArray and firstArray must be the same array.
+            expect(secondArray).toMatchObject([1, 2, 3, 4]);
+        });
+    });
+
+    describe("Create an actual copy of an array", function() {
+        it("should run without errors", function() {
+            const firstArray = [1, 2, 3];
+
+            ////////////////////////////////////////////////////////////////////
+            // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(firstArray).toMatchObject([1, 2, 3]);
+            expect(secondArray).toMatchObject([1, 2, 3]);
+
+            // We add a 4 at the end of firstArray
+            firstArray.push(4);
+
+            expect(firstArray).toMatchObject([1, 2, 3, 4]);
+            // And now secondArray doesn't have the 4.
+            // This means that secondArray is a real copy of firstArray.
+            expect(secondArray).toMatchObject([1, 2, 3]);
+        });
+    });
+
+    describe("Create an array with an initial length", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(longArray).to.equalInstanceOf(Array);
+            // Apparently longArray is really, really long. But don't worry: you don't have to write that by hand.
+            // There is a way to create an array with an initial length.
+            expect(longArray.length).to.equal(100);
+        });
+    });
+
+    describe("Weird casting rules", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // We need two variables with two different types.
+            // By observing their casting behavior in the tests below, you can find
+            // out the required types.
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(typeof firstVariable).to.equal("number");
+            expect(typeof secondVariable).to.equal("string");
+            expect(firstVariable + secondVariable).to.equal("31");
+            expect(firstVariable - secondVariable).to.equal(2);
+            expect(secondVariable + firstVariable).to.equal("13");
+            expect(secondVariable - firstVariable).to.equal(-2);
+        });
+    });
+
+    describe("A falsy string", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // Can you find a string that casts to `false` in an if() statement?
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(typeof falsyString).to.equal("string");
+            if (falsyString) {
+                throw new Error(
+                    "if() has been executed: falsyString is not falsy."
+                );
             }
+        });
+    });
+
+    describe("Falsy numbers", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // Can you find both number that cast to `false` in an if() statement?
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(typeof falsyNumber1).to.equal("number");
+            expect(typeof falsyNumber2).to.equal("number");
+            expect(falsyNumber1 === falsyNumber2).to.equal(false);
+            if (falsyNumber1) {
+                throw new Error(
+                    "if() has been executed: falsyNumber1 is not falsy."
+                );
+            }
+            if (falsyNumber2) {
+                throw new Error(
+                    "if() has been executed: falsyNumber2 is not falsy."
+                );
+            }
+        });
+    });
+
+    describe("A falsy object?", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // Can you find a value that is typeof "object" but also casts to `false`?
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(typeof falsyThing).to.equal("object");
+            if (falsyThing) {
+                throw new Error(
+                    "if() has been executed: falsyThing is not falsy."
+                );
+            }
+        });
+    });
+
+    describe("Accessing keys with the bracket notation", function() {
+        it("should run without errors", function() {
+            const object = {
+                firstProperty: 1,
+                secondProperty: 2
+            };
+            let propertyName = "firstProperty";
+
+            // We're freezing the object here which means that you can't change it anymore.
+            // This is just a safety measurement so that you can't take any shortcuts :)
+            Object.freeze(object);
+
+            // Dynamic property access: take the string from propertyName
+            // and use it to look up a property in object.
+            expect(object[propertyName]).to.equal(1);
+
+            ////////////////////////////////////////////////////////////////////
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            // That's the same property access as above, but now we get back
+            // a different property.
+            expect(object[propertyName]).to.equal(2);
+        });
+    });
+
+    describe("Circular reference", function() {
+        it("should run without errors", function() {
+            ////////////////////////////////////////////////////////////////////
+            // You can create objects that reference themselves.
+            // But you need two steps to do it.
+            // ✏️ ADD CODE HERE ✏️
+
+            ////////////////////////////////////////////////////////////////////
+
+            expect(object.object).to.equal(object);
         });
     });
 });
