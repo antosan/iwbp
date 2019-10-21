@@ -81,7 +81,7 @@ describe("basics", function() {
         });
     });
 
-    describe("Writing large numbers without typing a lot zeros", function() {
+    describe("Writing big numbers without typing a lot zeros", function() {
         it("should run without errors", function() {
             ////////////////////////////////////////////////////////////////////
             // We're searching for a big number written in way that we don't have to
@@ -104,7 +104,7 @@ describe("basics", function() {
             // We're searching for a floating point number
             // written in way that we don't have to write all the zeros AFTER the point.
             // Write it as a string so that the .length property can be checked.
-            // ✏️ ADD CODE HERE ✏️
+            // ✏️ EDIT NEXT LINE ✏️
             const someNumber = "...";
             ////////////////////////////////////////////////////////////////////
 
@@ -190,15 +190,15 @@ describe("basics", function() {
 
             ////////////////////////////////////////////////////////////////////
 
-            expect(secondArray).toMatchObject([1, 2, 3]);
+            expect(secondArray).to.eql([1, 2, 3]);
 
             // We add a 4 at the end of firstArray
             firstArray.push(4);
 
-            expect(firstArray).toMatchObject([1, 2, 3, 4]);
+            expect(firstArray).to.eql([1, 2, 3, 4]);
             // Look at that: secondArray also has the 4. This means
             // that secondArray and firstArray must be the same array.
-            expect(secondArray).toMatchObject([1, 2, 3, 4]);
+            expect(secondArray).to.eql([1, 2, 3, 4]);
         });
     });
 
@@ -212,16 +212,16 @@ describe("basics", function() {
 
             ////////////////////////////////////////////////////////////////////
 
-            expect(firstArray).toMatchObject([1, 2, 3]);
-            expect(secondArray).toMatchObject([1, 2, 3]);
+            expect(firstArray).to.eql([1, 2, 3]);
+            expect(secondArray).to.eql([1, 2, 3]);
 
             // We add a 4 at the end of firstArray
             firstArray.push(4);
 
-            expect(firstArray).toMatchObject([1, 2, 3, 4]);
+            expect(firstArray).to.eql([1, 2, 3, 4]);
             // And now secondArray doesn't have the 4.
             // This means that secondArray is a real copy of firstArray.
-            expect(secondArray).toMatchObject([1, 2, 3]);
+            expect(secondArray).to.eql([1, 2, 3]);
         });
     });
 
@@ -233,7 +233,7 @@ describe("basics", function() {
 
             ////////////////////////////////////////////////////////////////////
 
-            expect(longArray).to.equalInstanceOf(Array);
+            expect(longArray).to.be.instanceOf(Array);
             // Apparently longArray is really, really long. But don't worry: you don't have to write that by hand.
             // There is a way to create an array with an initial length.
             expect(longArray.length).to.equal(100);
@@ -279,7 +279,7 @@ describe("basics", function() {
     describe("Falsy numbers", function() {
         it("should run without errors", function() {
             ////////////////////////////////////////////////////////////////////
-            // Can you find both number that cast to `false` in an if() statement?
+            // Can you find two different numbers that each cast to `false` in an if() statement?
             // ✏️ ADD CODE HERE ✏️
 
             ////////////////////////////////////////////////////////////////////
